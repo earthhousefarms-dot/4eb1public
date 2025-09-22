@@ -99,10 +99,10 @@ export default function SchemeOfWorkGenerator() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-red-50">
       <div className="container mx-auto px-4 py-8">
         <header className="text-center mb-8">
-          <Link href="/" className="text-indigo-600 hover:text-indigo-800 text-sm mb-4 inline-block">
+          <Link href="/" className="text-blue-600 hover:text-blue-800 text-sm mb-4 inline-block">
             ← Back to Home
           </Link>
           <h1 className="text-4xl font-bold text-gray-800 mb-2">
@@ -120,7 +120,7 @@ export default function SchemeOfWorkGenerator() {
                 onClick={() => setActiveTab('setup')}
                 className={`flex-1 py-4 px-6 font-semibold ${
                   activeTab === 'setup'
-                    ? 'bg-indigo-600 text-white'
+                    ? 'bg-blue-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -130,7 +130,7 @@ export default function SchemeOfWorkGenerator() {
                 onClick={() => setActiveTab('children')}
                 className={`flex-1 py-4 px-6 font-semibold ${
                   activeTab === 'children'
-                    ? 'bg-indigo-600 text-white'
+                    ? 'bg-blue-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -140,7 +140,7 @@ export default function SchemeOfWorkGenerator() {
                 onClick={() => setActiveTab('schedule')}
                 className={`flex-1 py-4 px-6 font-semibold ${
                   activeTab === 'schedule'
-                    ? 'bg-indigo-600 text-white'
+                    ? 'bg-blue-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -150,7 +150,7 @@ export default function SchemeOfWorkGenerator() {
                 onClick={() => setActiveTab('generate')}
                 className={`flex-1 py-4 px-6 font-semibold ${
                   activeTab === 'generate'
-                    ? 'bg-indigo-600 text-white'
+                    ? 'bg-blue-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -164,18 +164,18 @@ export default function SchemeOfWorkGenerator() {
                   <h2 className="text-2xl font-bold text-gray-800 mb-4">
                     Welcome to the Scheme of Work Generator
                   </h2>
-                  <div className="bg-indigo-50 rounded-lg p-6">
-                    <h3 className="font-semibold text-indigo-900 mb-3">How it works:</h3>
-                    <ol className="list-decimal list-inside space-y-2 text-indigo-700">
+                  <div className="bg-blue-50 rounded-lg p-6">
+                    <h3 className="font-semibold text-blue-900 mb-3">How it works:</h3>
+                    <ol className="list-decimal list-inside space-y-2 text-blue-700">
                       <li>Add your children&apos;s profiles with their year groups and learning preferences</li>
                       <li>Set your homeschool schedule (days per week, hours per day, term dates)</li>
                       <li>Generate personalized schemes of work for each child</li>
                       <li>Print or save the generated plans for your records</li>
                     </ol>
                   </div>
-                  <div className="bg-green-50 rounded-lg p-6">
-                    <h3 className="font-semibold text-green-900 mb-3">Features:</h3>
-                    <ul className="list-disc list-inside space-y-2 text-green-700">
+                  <div className="bg-red-50 rounded-lg p-6">
+                    <h3 className="font-semibold text-red-900 mb-3">Features:</h3>
+                    <ul className="list-disc list-inside space-y-2 text-red-700">
                       <li>Aligned with UK Key Stage 2 curriculum</li>
                       <li>Customizable to each child&apos;s pace and learning style</li>
                       <li>Weekly lesson plans with objectives and activities</li>
@@ -185,7 +185,7 @@ export default function SchemeOfWorkGenerator() {
                   </div>
                   <button
                     onClick={() => setActiveTab('children')}
-                    className="w-full py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-semibold"
+                    className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold"
                   >
                     Get Started →
                   </button>
@@ -208,7 +208,7 @@ export default function SchemeOfWorkGenerator() {
                           type="text"
                           value={currentChild.name}
                           onChange={(e) => setCurrentChild({...currentChild, name: e.target.value})}
-                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                           placeholder="Enter name"
                         />
                       </div>
@@ -220,7 +220,7 @@ export default function SchemeOfWorkGenerator() {
                         <select
                           value={currentChild.yearGroup}
                           onChange={(e) => setCurrentChild({...currentChild, yearGroup: e.target.value})}
-                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                         >
                           <option value="Year 3">Year 3 (Age 7-8)</option>
                           <option value="Year 4">Year 4 (Age 8-9)</option>
@@ -236,7 +236,7 @@ export default function SchemeOfWorkGenerator() {
                         <select
                           value={currentChild.learningStyle}
                           onChange={(e) => setCurrentChild({...currentChild, learningStyle: e.target.value as 'visual' | 'auditory' | 'kinesthetic' | 'mixed'})}
-                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                         >
                           <option value="visual">Visual Learner</option>
                           <option value="auditory">Auditory Learner</option>
@@ -252,7 +252,7 @@ export default function SchemeOfWorkGenerator() {
                         <select
                           value={currentChild.pace}
                           onChange={(e) => setCurrentChild({...currentChild, pace: e.target.value as 'standard' | 'accelerated' | 'supported'})}
-                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                         >
                           <option value="supported">Needs Support</option>
                           <option value="standard">Standard Pace</option>
@@ -263,7 +263,7 @@ export default function SchemeOfWorkGenerator() {
 
                     <button
                       onClick={addChild}
-                      className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+                      className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                     >
                       Add Child
                     </button>
@@ -294,7 +294,7 @@ export default function SchemeOfWorkGenerator() {
                   {children.length > 0 && (
                     <button
                       onClick={() => setActiveTab('schedule')}
-                      className="w-full py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-semibold"
+                      className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold"
                     >
                       Next: Set Schedule →
                     </button>
@@ -316,7 +316,7 @@ export default function SchemeOfWorkGenerator() {
                       <select
                         value={schedule.daysPerWeek}
                         onChange={(e) => setSchedule({...schedule, daysPerWeek: Number(e.target.value)})}
-                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                       >
                         <option value={3}>3 days</option>
                         <option value={4}>4 days</option>
@@ -331,7 +331,7 @@ export default function SchemeOfWorkGenerator() {
                       <select
                         value={schedule.hoursPerDay}
                         onChange={(e) => setSchedule({...schedule, hoursPerDay: Number(e.target.value)})}
-                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                       >
                         <option value={0.5}>30 minutes</option>
                         <option value={1}>1 hour</option>
@@ -348,7 +348,7 @@ export default function SchemeOfWorkGenerator() {
                         type="date"
                         value={schedule.startDate.toISOString().split('T')[0]}
                         onChange={(e) => setSchedule({...schedule, startDate: new Date(e.target.value)})}
-                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
 
@@ -360,7 +360,7 @@ export default function SchemeOfWorkGenerator() {
                         type="date"
                         value={schedule.endDate.toISOString().split('T')[0]}
                         onChange={(e) => setSchedule({...schedule, endDate: new Date(e.target.value)})}
-                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
 
@@ -371,7 +371,7 @@ export default function SchemeOfWorkGenerator() {
                       <select
                         value={schedule.terms}
                         onChange={(e) => setSchedule({...schedule, terms: Number(e.target.value)})}
-                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
                       >
                         <option value={1}>1 term</option>
                         <option value={2}>2 terms</option>
@@ -404,7 +404,7 @@ export default function SchemeOfWorkGenerator() {
                   {children.length > 0 && (
                     <button
                       onClick={generateAllSchemes}
-                      className="w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold"
+                      className="w-full py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 font-semibold"
                     >
                       Generate Schemes of Work
                     </button>
@@ -423,7 +423,7 @@ export default function SchemeOfWorkGenerator() {
                       <p className="text-gray-600 mb-4">No schemes generated yet.</p>
                       <button
                         onClick={() => setActiveTab('children')}
-                        className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+                        className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                       >
                         Add Children First
                       </button>
@@ -433,9 +433,9 @@ export default function SchemeOfWorkGenerator() {
                       {children.map(child => (
                         generatedSchemes[child.id] && (
                           <div key={child.id} className="border rounded-lg overflow-hidden">
-                            <div className="bg-indigo-600 text-white p-4">
+                            <div className="bg-blue-600 text-white p-4">
                               <h3 className="text-xl font-bold">{child.name} - {child.yearGroup}</h3>
-                              <p className="text-indigo-100">
+                              <p className="text-blue-100">
                                 {child.learningStyle} learner | {child.pace} pace
                               </p>
                             </div>

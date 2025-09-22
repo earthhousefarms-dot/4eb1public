@@ -22,7 +22,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-red-50">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <header className="text-center mb-16">
@@ -39,31 +39,31 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Diagnostic Test Card */}
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform">
-              <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-8 text-white">
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-8 text-white">
                 <div className="text-5xl mb-4">🎯</div>
                 <h2 className="text-3xl font-bold mb-2">Student Testing</h2>
-                <p className="text-purple-100">
+                <p className="text-blue-100">
                   Assess current skills & get recommendations
                 </p>
               </div>
               <div className="p-8">
                 <ul className="space-y-2 mb-6 text-gray-600">
                   <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">✓</span>
+                    <span className="text-blue-600 mr-2">✓</span>
                     <span>20-30 minute diagnostic assessment</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">✓</span>
+                    <span className="text-blue-600 mr-2">✓</span>
                     <span>Covers all key English skills</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">✓</span>
+                    <span className="text-blue-600 mr-2">✓</span>
                     <span>Personalized learning recommendations</span>
                   </li>
                 </ul>
                 <Link
                   href="/diagnostic-test"
-                  className="block w-full py-4 bg-purple-600 text-white text-center rounded-lg hover:bg-purple-700 transition-colors font-semibold text-lg"
+                  className="block w-full py-4 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg"
                 >
                   Start Diagnostic Test
                 </Link>
@@ -72,31 +72,31 @@ export default function Home() {
 
             {/* Study Plan Card */}
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform">
-              <div className="bg-gradient-to-r from-green-600 to-green-700 p-8 text-white">
+              <div className="bg-gradient-to-r from-red-600 to-red-700 p-8 text-white">
                 <div className="text-5xl mb-4">📝</div>
                 <h2 className="text-3xl font-bold mb-2">Study Plans</h2>
-                <p className="text-green-100">
+                <p className="text-red-100">
                   Create personalised schemes of work
                 </p>
               </div>
               <div className="p-8">
                 <ul className="space-y-2 mb-6 text-gray-600">
                   <li className="flex items-start">
-                    <span className="text-green-600 mr-2">✓</span>
+                    <span className="text-red-600 mr-2">✓</span>
                     <span>Customizable weekly schedules</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-600 mr-2">✓</span>
+                    <span className="text-red-600 mr-2">✓</span>
                     <span>Multiple children profiles</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-600 mr-2">✓</span>
+                    <span className="text-red-600 mr-2">✓</span>
                     <span>Printable lesson plans</span>
                   </li>
                 </ul>
                 <Link
                   href="/scheme-of-work"
-                  className="block w-full py-4 bg-green-600 text-white text-center rounded-lg hover:bg-green-700 transition-colors font-semibold text-lg"
+                  className="block w-full py-4 bg-red-600 text-white text-center rounded-lg hover:bg-red-700 transition-colors font-semibold text-lg"
                 >
                   Create Study Plan
                 </Link>
@@ -118,7 +118,7 @@ export default function Home() {
                   <Link
                     key={idx}
                     href={activity.link}
-                    className="block p-4 bg-gray-50 rounded-lg hover:bg-indigo-50 transition-colors"
+                    className="block p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors"
                   >
                     <div className="flex items-start justify-between">
                       <div>
@@ -130,7 +130,7 @@ export default function Home() {
                         <p className="font-semibold text-gray-800">{activity.title}</p>
                         <p className="text-sm text-gray-500">{activity.date}</p>
                       </div>
-                      <span className="text-indigo-600">→</span>
+                      <span className="text-blue-600">→</span>
                     </div>
                   </Link>
                 ))}
@@ -150,7 +150,7 @@ export default function Home() {
                 href="/lessons/prefixes-1"
                 className="text-center group"
               >
-                <div className="bg-indigo-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3 group-hover:bg-indigo-200 transition-colors">
+                <div className="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-200 transition-colors">
                   <span className="text-3xl">📚</span>
                 </div>
                 <h3 className="font-semibold text-gray-800">Year 3</h3>
@@ -161,7 +161,7 @@ export default function Home() {
                 href="/lessons/sentences-1"
                 className="text-center group"
               >
-                <div className="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3 group-hover:bg-green-200 transition-colors">
+                <div className="bg-red-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3 group-hover:bg-red-200 transition-colors">
                   <span className="text-3xl">✏️</span>
                 </div>
                 <h3 className="font-semibold text-gray-800">Year 4</h3>
@@ -172,7 +172,7 @@ export default function Home() {
                 href="/lessons/prefixes-1"
                 className="text-center group"
               >
-                <div className="bg-purple-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3 group-hover:bg-purple-200 transition-colors">
+                <div className="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-200 transition-colors">
                   <span className="text-3xl">📖</span>
                 </div>
                 <h3 className="font-semibold text-gray-800">Year 5</h3>
@@ -183,7 +183,7 @@ export default function Home() {
                 href="/lessons/sentences-1"
                 className="text-center group"
               >
-                <div className="bg-orange-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3 group-hover:bg-orange-200 transition-colors">
+                <div className="bg-red-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3 group-hover:bg-red-200 transition-colors">
                   <span className="text-3xl">🎓</span>
                 </div>
                 <h3 className="font-semibold text-gray-800">Year 6</h3>

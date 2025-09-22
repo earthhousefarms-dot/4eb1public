@@ -89,12 +89,12 @@ export default function LessonPage({ params }: { params: { id: string } }) {
   }, [params.id, lesson]);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-red-50">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <nav className="mb-6">
           <Link
             href="/"
-            className="text-indigo-600 hover:text-indigo-800 flex items-center gap-2"
+            className="text-blue-600 hover:text-blue-800 flex items-center gap-2"
           >
             ← Back to Home
           </Link>
@@ -106,9 +106,9 @@ export default function LessonPage({ params }: { params: { id: string } }) {
             {lesson.title}
           </h1>
 
-          <div className="bg-indigo-50 rounded-lg p-4">
-            <h2 className="font-semibold text-indigo-900 mb-2">Learning Objectives:</h2>
-            <ul className="list-disc list-inside text-indigo-700 space-y-1">
+          <div className="bg-blue-50 rounded-lg p-4">
+            <h2 className="font-semibold text-blue-900 mb-2">Learning Objectives:</h2>
+            <ul className="list-disc list-inside text-blue-700 space-y-1">
               {lesson.objectives.map((obj, idx) => (
                 <li key={idx}>{obj}</li>
               ))}
@@ -128,20 +128,20 @@ export default function LessonPage({ params }: { params: { id: string } }) {
               <div key={idx} className="bg-gray-50 rounded-lg p-4">
                 {example.prefix ? (
                   <div className="flex items-center gap-4">
-                    <span className="font-mono text-lg bg-indigo-100 px-3 py-1 rounded">
+                    <span className="font-mono text-lg bg-blue-100 px-3 py-1 rounded">
                       {example.prefix}
                     </span>
                     <span className="text-gray-600">+</span>
                     <span className="font-mono text-lg">{example.base}</span>
                     <span className="text-gray-600">=</span>
-                    <span className="font-mono text-lg font-semibold text-indigo-600">
+                    <span className="font-mono text-lg font-semibold text-red-600">
                       {example.new}
                     </span>
                     <span className="text-gray-600 italic ml-4">({example.meaning})</span>
                   </div>
                 ) : (
                   <div>
-                    <div className="font-semibold text-indigo-600 mb-2">{example.type}</div>
+                    <div className="font-semibold text-blue-600 mb-2">{example.type}</div>
                     <div className="font-mono text-lg mb-1">&quot;{example.example}&quot;</div>
                     <div className="text-sm text-gray-600">
                       Punctuation: {example.punctuation} | Purpose: {example.purpose}
@@ -158,7 +158,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
 
           <div className="space-y-6">
             {lesson.content.practice.map((item, idx) => (
-              <div key={idx} className="border-l-4 border-indigo-400 pl-6">
+              <div key={idx} className="border-l-4 border-blue-400 pl-6">
                 <p className="text-lg font-medium text-gray-800 mb-3">
                   {idx + 1}. {item.question}
                 </p>
@@ -166,7 +166,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
                 <div className="flex items-center gap-4">
                   <input
                     type="text"
-                    className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Type your answer here..."
                   />
 
@@ -183,13 +183,13 @@ export default function LessonPage({ params }: { params: { id: string } }) {
           <div className="mt-8 flex gap-4">
             <button
               onClick={() => setShowAnswers(!showAnswers)}
-              className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               {showAnswers ? 'Hide Answers' : 'Show Answers'}
             </button>
 
             <button
-              className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
             >
               Submit Practice
             </button>

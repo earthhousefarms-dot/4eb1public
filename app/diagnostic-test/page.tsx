@@ -86,10 +86,10 @@ export default function DiagnosticTest() {
 
   if (!testStarted) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-red-50">
         <div className="container mx-auto px-4 py-8">
           <header className="text-center mb-8">
-            <Link href="/" className="text-indigo-600 hover:text-indigo-800 text-sm mb-4 inline-block">
+            <Link href="/" className="text-blue-600 hover:text-blue-800 text-sm mb-4 inline-block">
               ← Back to Home
             </Link>
             <h1 className="text-4xl font-bold text-gray-800 mb-4">
@@ -146,7 +146,7 @@ export default function DiagnosticTest() {
                 <button
                   onClick={startTest}
                   disabled={!childName.trim()}
-                  className="w-full py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed font-semibold"
+                  className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed font-semibold"
                 >
                   Start Diagnostic Test
                 </button>
@@ -160,7 +160,7 @@ export default function DiagnosticTest() {
 
   if (testComplete && report) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-red-50">
         <div className="container mx-auto px-4 py-8">
           <header className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-800 mb-2">
@@ -175,13 +175,13 @@ export default function DiagnosticTest() {
             <div className="bg-white rounded-xl shadow-lg p-8">
               <div className="grid md:grid-cols-3 gap-6 mb-6">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-indigo-600">
+                  <div className="text-4xl font-bold text-blue-600">
                     {report.overallScore}%
                   </div>
                   <p className="text-gray-600">Overall Score</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-green-600">
+                  <div className="text-4xl font-bold text-red-600">
                     {report.recommendedYear}
                   </div>
                   <p className="text-gray-600">Recommended Level</p>
@@ -260,11 +260,11 @@ export default function DiagnosticTest() {
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-xl font-semibold mb-4">Recommendations</h3>
               <div className="space-y-3">
-                <div className="bg-indigo-50 rounded-lg p-4">
-                  <p className="text-indigo-900 font-medium mb-2">
+                <div className="bg-blue-50 rounded-lg p-4">
+                  <p className="text-blue-900 font-medium mb-2">
                     Learning Style: <span className="capitalize">{report.learningStyleIndicator}</span>
                   </p>
-                  <p className="text-indigo-700 text-sm">
+                  <p className="text-blue-700 text-sm">
                     {report.learningStyleIndicator === 'visual' && 'Use diagrams, charts, and visual aids to support learning.'}
                     {report.learningStyleIndicator === 'auditory' && 'Include discussions, audio resources, and verbal explanations.'}
                     {report.learningStyleIndicator === 'kinesthetic' && 'Incorporate hands-on activities and movement-based learning.'}
@@ -283,14 +283,14 @@ export default function DiagnosticTest() {
             <div className="flex gap-4 justify-center">
               <button
                 onClick={navigateToSOW}
-                className="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold"
+                className="px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 font-semibold"
               >
                 Generate Personalised Scheme of Work
               </button>
 
               <button
                 onClick={() => window.print()}
-                className="px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-semibold"
+                className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold"
               >
                 Print Report
               </button>
@@ -309,7 +309,7 @@ export default function DiagnosticTest() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-red-50">
       <div className="container mx-auto px-4 py-8">
         <header className="mb-6">
           <div className="max-w-3xl mx-auto">
@@ -323,7 +323,7 @@ export default function DiagnosticTest() {
             </div>
             <div className="w-full bg-gray-200 rounded-full h-4 shadow-inner">
               <div
-                className="bg-gradient-to-r from-indigo-500 to-indigo-600 h-4 rounded-full transition-all duration-300 shadow-sm"
+                className="bg-gradient-to-r from-blue-500 to-red-500 h-4 rounded-full transition-all duration-300 shadow-sm"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -333,7 +333,7 @@ export default function DiagnosticTest() {
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-xl shadow-lg p-10">
             <div className="mb-4">
-              <span className="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-base font-medium capitalize">
+              <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-base font-medium capitalize">
                 {currentQuestion.category} - Year {currentQuestion.yearLevel} Level
               </span>
             </div>
@@ -350,14 +350,14 @@ export default function DiagnosticTest() {
                     onClick={() => setCurrentAnswer(option)}
                     className={`w-full text-left p-6 rounded-xl border-2 transition-all text-lg ${
                       currentAnswer === option
-                        ? 'border-indigo-500 bg-indigo-50 font-semibold shadow-md'
-                        : 'border-gray-300 hover:border-indigo-300 hover:bg-gray-50'
+                        ? 'border-blue-500 bg-blue-50 font-semibold shadow-md'
+                        : 'border-gray-300 hover:border-blue-300 hover:bg-gray-50'
                     }`}
                   >
                     <span className="flex items-center">
                       <span className={`mr-4 w-10 h-10 rounded-full border-2 flex items-center justify-center text-base font-bold ${
                         currentAnswer === option
-                          ? 'bg-indigo-500 text-white border-indigo-500'
+                          ? 'bg-blue-500 text-white border-blue-500'
                           : 'border-gray-400 text-gray-600 bg-white'
                       }`}>
                         {String.fromCharCode(65 + idx)}
@@ -375,7 +375,7 @@ export default function DiagnosticTest() {
                   type="text"
                   value={currentAnswer}
                   onChange={(e) => setCurrentAnswer(e.target.value)}
-                  className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Type your answer here..."
                   autoFocus
                 />
@@ -390,13 +390,13 @@ export default function DiagnosticTest() {
                     onClick={() => setCurrentAnswer(option)}
                     className={`w-full text-left p-6 rounded-xl border-2 transition-all text-lg ${
                       currentAnswer === option
-                        ? 'border-indigo-500 bg-indigo-50 font-semibold shadow-md'
-                        : 'border-gray-300 hover:border-indigo-300 hover:bg-gray-50'
+                        ? 'border-blue-500 bg-blue-50 font-semibold shadow-md'
+                        : 'border-gray-300 hover:border-blue-300 hover:bg-gray-50'
                     }`}
                   >
                     <span className="flex items-center justify-center">
                       <span className={`text-xl font-bold ${
-                        currentAnswer === option ? 'text-indigo-600' : 'text-gray-700'
+                        currentAnswer === option ? 'text-blue-600' : 'text-gray-700'
                       }`}>
                         {option}
                       </span>
@@ -418,7 +418,7 @@ export default function DiagnosticTest() {
               <button
                 onClick={submitAnswer}
                 disabled={!currentAnswer}
-                className="px-8 py-3 text-lg bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed font-medium transition-colors"
+                className="px-8 py-3 text-lg bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed font-medium transition-colors"
               >
                 {currentQuestionIndex === diagnosticQuestions.length - 1 ? 'Finish Test 🎯' : 'Next Question →'}
               </button>
