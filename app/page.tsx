@@ -62,6 +62,19 @@ export default function Home() {
           ))}
         </div>
 
+        <div className="mt-12 text-center">
+          <Link
+            href="/scheme-of-work"
+            className="inline-flex items-center px-8 py-4 bg-green-600 text-white text-lg rounded-lg hover:bg-green-700 transition-colors shadow-lg"
+          >
+            <span className="text-2xl mr-3">📝</span>
+            Generate Personalised Scheme of Work
+          </Link>
+          <p className="mt-3 text-gray-600">
+            Create customised learning plans for each child
+          </p>
+        </div>
+
         <section className="mt-16 text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Learning Features
