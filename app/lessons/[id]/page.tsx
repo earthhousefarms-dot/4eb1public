@@ -2,9 +2,31 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { keyStage2Curriculum } from '@/lib/data/curriculum';
 
-const sampleLessons: Record<string, any> = {
+interface Lesson {
+  title: string;
+  year: string;
+  objectives: string[];
+  content: {
+    introduction: string;
+    examples: Array<{
+      prefix?: string;
+      base?: string;
+      new?: string;
+      meaning?: string;
+      type?: string;
+      example?: string;
+      punctuation?: string;
+      purpose?: string;
+    }>;
+    practice: Array<{
+      question: string;
+      answer: string;
+    }>;
+  };
+}
+
+const sampleLessons: Record<string, Lesson> = {
   'prefixes-1': {
     title: 'Common Prefixes: un-, dis-, mis-',
     year: 'Year 3',
@@ -54,7 +76,6 @@ const sampleLessons: Record<string, any> = {
 
 export default function LessonPage({ params }: { params: { id: string } }) {
   const [showAnswers, setShowAnswers] = useState(false);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
   const lesson = sampleLessons[params.id] || sampleLessons['prefixes-1'];
 
   return (
@@ -78,7 +99,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
           <div className="bg-indigo-50 rounded-lg p-4">
             <h2 className="font-semibold text-indigo-900 mb-2">Learning Objectives:</h2>
             <ul className="list-disc list-inside text-indigo-700 space-y-1">
-              {lesson.objectives.map((obj: string, idx: number) => (
+              {lesson.objectives.map((obj, idx) => (
                 <li key={idx}>{obj}</li>
               ))}
             </ul>
@@ -93,7 +114,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
 
           <h3 className="text-xl font-semibold text-gray-800 mb-4">Examples</h3>
           <div className="space-y-4">
-            {lesson.content.examples.map((example: any, idx: number) => (
+            {lesson.content.examples.map((example, idx) => (
               <div key={idx} className="bg-gray-50 rounded-lg p-4">
                 {example.prefix ? (
                   <div className="flex items-center gap-4">
@@ -111,7 +132,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
                 ) : (
                   <div>
                     <div className="font-semibold text-indigo-600 mb-2">{example.type}</div>
-                    <div className="font-mono text-lg mb-1">"{example.example}"</div>
+                    <div className="font-mono text-lg mb-1">&quot;{example.example}&quot;</div>
                     <div className="text-sm text-gray-600">
                       Punctuation: {example.punctuation} | Purpose: {example.purpose}
                     </div>
@@ -126,7 +147,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Practice Questions</h2>
 
           <div className="space-y-6">
-            {lesson.content.practice.map((item: any, idx: number) => (
+            {lesson.content.practice.map((item, idx) => (
               <div key={idx} className="border-l-4 border-indigo-400 pl-6">
                 <p className="text-lg font-medium text-gray-800 mb-3">
                   {idx + 1}. {item.question}
