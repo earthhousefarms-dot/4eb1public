@@ -391,7 +391,7 @@ export function analyzeTestResults(
 
   // Calculate percentages and year level equivalents
   const yearLevelScores: Map<number, number> = new Map();
-  results.forEach((result, category) => {
+  results.forEach((result) => {
     result.percentage = result.maxScore > 0 ? Math.round((result.score / result.maxScore) * 100) : 0;
 
     // Estimate year level based on performance

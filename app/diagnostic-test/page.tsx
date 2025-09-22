@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { ActivityTracker } from '@/lib/utils/activity-tracker';
 import {
   diagnosticQuestions,
   analyzeTestResults,
-  type TestQuestion,
   type DiagnosticReport
 } from '@/lib/data/diagnostic-test';
 
@@ -43,6 +43,17 @@ export default function DiagnosticTest() {
         const testReport = analyzeTestResults(newAnswers, childName);
         setReport(testReport);
         setTestComplete(true);
+
+        // Track test completion
+        ActivityTracker.addActivity({
+          type: 'test',
+          title: `Diagnostic Test - ${childName}`,
+          link: '/diagnostic-test',
+          metadata: {
+            score: testReport.overallScore,
+            recommendedYear: testReport.recommendedYear
+          }
+        });
       }
     }
   };

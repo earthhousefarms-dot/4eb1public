@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { ActivityTracker } from '@/lib/utils/activity-tracker';
 
 interface Lesson {
   title: string;
@@ -77,6 +78,15 @@ const sampleLessons: Record<string, Lesson> = {
 export default function LessonPage({ params }: { params: { id: string } }) {
   const [showAnswers, setShowAnswers] = useState(false);
   const lesson = sampleLessons[params.id] || sampleLessons['prefixes-1'];
+
+  useEffect(() => {
+    // Track this lesson activity
+    ActivityTracker.addActivity({
+      type: 'lesson',
+      title: `${lesson.year}: ${lesson.title}`,
+      link: `/lessons/${params.id}`
+    });
+  }, [params.id, lesson]);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
