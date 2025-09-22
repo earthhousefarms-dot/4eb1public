@@ -314,16 +314,16 @@ export default function DiagnosticTest() {
         <header className="mb-6">
           <div className="max-w-3xl mx-auto">
             <div className="flex justify-between items-center mb-4">
-              <h1 className="text-2xl font-bold text-gray-800">
+              <h1 className="text-3xl font-bold text-gray-900">
                 Diagnostic Test - {childName}
               </h1>
-              <span className="text-gray-600">
+              <span className="text-lg text-gray-700 font-medium">
                 Question {currentQuestionIndex + 1} of {diagnosticQuestions.length}
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-3">
+            <div className="w-full bg-gray-200 rounded-full h-4 shadow-inner">
               <div
-                className="bg-indigo-600 h-3 rounded-full transition-all duration-300"
+                className="bg-gradient-to-r from-indigo-500 to-indigo-600 h-4 rounded-full transition-all duration-300 shadow-sm"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -331,30 +331,39 @@ export default function DiagnosticTest() {
         </header>
 
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <div className="mb-2">
-              <span className="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm capitalize">
+          <div className="bg-white rounded-xl shadow-lg p-10">
+            <div className="mb-4">
+              <span className="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-base font-medium capitalize">
                 {currentQuestion.category} - Year {currentQuestion.yearLevel} Level
               </span>
             </div>
 
-            <h2 className="text-xl font-semibold text-gray-800 mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 leading-relaxed">
               {currentQuestion.question}
             </h2>
 
             {currentQuestion.type === 'multiple-choice' && currentQuestion.options && (
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {currentQuestion.options.map((option, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentAnswer(option)}
-                    className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
+                    className={`w-full text-left p-6 rounded-xl border-2 transition-all text-lg ${
                       currentAnswer === option
-                        ? 'border-indigo-500 bg-indigo-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-indigo-500 bg-indigo-50 font-semibold shadow-md'
+                        : 'border-gray-300 hover:border-indigo-300 hover:bg-gray-50'
                     }`}
                   >
-                    {option}
+                    <span className="flex items-center">
+                      <span className={`mr-4 w-10 h-10 rounded-full border-2 flex items-center justify-center text-base font-bold ${
+                        currentAnswer === option
+                          ? 'bg-indigo-500 text-white border-indigo-500'
+                          : 'border-gray-400 text-gray-600 bg-white'
+                      }`}>
+                        {String.fromCharCode(65 + idx)}
+                      </span>
+                      <span className="text-gray-900">{option}</span>
+                    </span>
                   </button>
                 ))}
               </div>
@@ -366,45 +375,52 @@ export default function DiagnosticTest() {
                   type="text"
                   value={currentAnswer}
                   onChange={(e) => setCurrentAnswer(e.target.value)}
-                  className="w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Type your answer here..."
+                  autoFocus
                 />
               </div>
             )}
 
             {currentQuestion.type === 'true-false' && (
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {['True', 'False'].map((option) => (
                   <button
                     key={option}
                     onClick={() => setCurrentAnswer(option)}
-                    className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
+                    className={`w-full text-left p-6 rounded-xl border-2 transition-all text-lg ${
                       currentAnswer === option
-                        ? 'border-indigo-500 bg-indigo-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-indigo-500 bg-indigo-50 font-semibold shadow-md'
+                        : 'border-gray-300 hover:border-indigo-300 hover:bg-gray-50'
                     }`}
                   >
-                    {option}
+                    <span className="flex items-center justify-center">
+                      <span className={`text-xl font-bold ${
+                        currentAnswer === option ? 'text-indigo-600' : 'text-gray-700'
+                      }`}>
+                        {option}
+                      </span>
+                    </span>
                   </button>
                 ))}
               </div>
             )}
 
-            <div className="flex justify-between mt-8">
+            <div className="flex justify-between mt-10 pt-6 border-t border-gray-200">
               <button
                 onClick={goToPreviousQuestion}
                 disabled={currentQuestionIndex === 0}
-                className="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="px-8 py-3 text-lg bg-gray-500 text-white rounded-xl hover:bg-gray-600 disabled:bg-gray-300 disabled:cursor-not-allowed font-medium transition-colors"
               >
-                Previous
+                ← Previous
               </button>
 
               <button
                 onClick={submitAnswer}
                 disabled={!currentAnswer}
-                className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="px-8 py-3 text-lg bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed font-medium transition-colors"
               >
-                {currentQuestionIndex === diagnosticQuestions.length - 1 ? 'Finish Test' : 'Next Question'}
+                {currentQuestionIndex === diagnosticQuestions.length - 1 ? 'Finish Test 🎯' : 'Next Question →'}
               </button>
             </div>
           </div>
