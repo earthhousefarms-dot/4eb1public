@@ -348,10 +348,10 @@ export default function DiagnosticTest() {
                   <button
                     key={idx}
                     onClick={() => setCurrentAnswer(option)}
-                    className={`w-full text-left p-6 rounded-xl border-2 transition-all text-lg ${
+                    className={`w-full text-left p-6 rounded-xl border-2 transition-all text-lg text-gray-900 ${
                       currentAnswer === option
                         ? 'border-blue-500 bg-blue-50 font-semibold shadow-md'
-                        : 'border-gray-300 hover:border-blue-300 hover:bg-gray-50'
+                        : 'border-gray-300 hover:border-blue-300 hover:bg-gray-50 bg-white'
                     }`}
                   >
                     <span className="flex items-center">
@@ -375,7 +375,7 @@ export default function DiagnosticTest() {
                   type="text"
                   value={currentAnswer}
                   onChange={(e) => setCurrentAnswer(e.target.value)}
-                  className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-6 py-4 text-lg text-gray-900 bg-white border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Type your answer here..."
                   autoFocus
                 />
@@ -388,10 +388,10 @@ export default function DiagnosticTest() {
                   <button
                     key={option}
                     onClick={() => setCurrentAnswer(option)}
-                    className={`w-full text-left p-6 rounded-xl border-2 transition-all text-lg ${
+                    className={`w-full text-left p-6 rounded-xl border-2 transition-all text-lg text-gray-900 ${
                       currentAnswer === option
                         ? 'border-blue-500 bg-blue-50 font-semibold shadow-md'
-                        : 'border-gray-300 hover:border-blue-300 hover:bg-gray-50'
+                        : 'border-gray-300 hover:border-blue-300 hover:bg-gray-50 bg-white'
                     }`}
                   >
                     <span className="flex items-center justify-center">
