@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   generateSchemeOfWork,
@@ -29,6 +29,35 @@ export default function SchemeOfWorkGenerator() {
   });
   const [generatedSchemes, setGeneratedSchemes] = useState<Record<string, TermScheme[]>>({});
   const [activeTab, setActiveTab] = useState<'setup' | 'children' | 'schedule' | 'generate'>('setup');
+
+  // Check for diagnostic test data on component mount
+  useEffect(() => {
+    const diagnosticData = sessionStorage.getItem('diagnosticChild');
+    if (diagnosticData) {
+      const child = JSON.parse(diagnosticData);
+      setCurrentChild({
+        name: child.name,
+        yearGroup: child.yearGroup,
+        strengths: child.strengths || [],
+        areasForImprovement: child.areasForImprovement || [],
+        learningStyle: child.learningStyle,
+        pace: child.pace
+      });
+
+      // Add notification that diagnostic data has been loaded
+      const notification = document.createElement('div');
+      notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+      notification.textContent = `Diagnostic results loaded for ${child.name}`;
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        notification.remove();
+        sessionStorage.removeItem('diagnosticChild');
+      }, 3000);
+
+      setActiveTab('children');
+    }
+  }, []);
 
   const addChild = () => {
     if (currentChild.name) {

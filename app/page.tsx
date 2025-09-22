@@ -62,17 +62,34 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <Link
-            href="/scheme-of-work"
-            className="inline-flex items-center px-8 py-4 bg-green-600 text-white text-lg rounded-lg hover:bg-green-700 transition-colors shadow-lg"
-          >
-            <span className="text-2xl mr-3">📝</span>
-            Generate Personalised Scheme of Work
-          </Link>
-          <p className="mt-3 text-gray-600">
-            Create customised learning plans for each child
-          </p>
+        <div className="mt-12 text-center space-y-6">
+          <div>
+            <Link
+              href="/diagnostic-test"
+              className="inline-flex items-center px-8 py-4 bg-purple-600 text-white text-lg rounded-lg hover:bg-purple-700 transition-colors shadow-lg"
+            >
+              <span className="text-2xl mr-3">🎯</span>
+              Take Diagnostic Test
+            </Link>
+            <p className="mt-3 text-gray-600">
+              Assess current English skills and get personalised recommendations
+            </p>
+          </div>
+
+          <div className="text-gray-400">— OR —</div>
+
+          <div>
+            <Link
+              href="/scheme-of-work"
+              className="inline-flex items-center px-8 py-4 bg-green-600 text-white text-lg rounded-lg hover:bg-green-700 transition-colors shadow-lg"
+            >
+              <span className="text-2xl mr-3">📝</span>
+              Generate Scheme of Work
+            </Link>
+            <p className="mt-3 text-gray-600">
+              Create customised learning plans directly
+            </p>
+          </div>
         </div>
 
         <section className="mt-16 text-center">
