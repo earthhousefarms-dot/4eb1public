@@ -375,8 +375,9 @@ export default function DiagnosticTest() {
                   type="text"
                   value={currentAnswer}
                   onChange={(e) => setCurrentAnswer(e.target.value)}
-                  className="w-full px-6 py-4 text-lg text-gray-900 bg-white border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-6 py-4 text-lg text-gray-900 bg-white border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
                   placeholder="Type your answer here..."
+                  style={{ color: '#111827', backgroundColor: '#ffffff' }}
                   autoFocus
                 />
               </div>
