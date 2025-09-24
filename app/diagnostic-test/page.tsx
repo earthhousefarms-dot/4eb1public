@@ -86,71 +86,69 @@ export default function DiagnosticTest() {
 
   if (!testStarted) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-red-50">
-        <div className="container mx-auto px-4 py-8">
-          <header className="text-center mb-8">
-            <Link href="/" className="text-blue-600 hover:text-blue-800 text-sm mb-4 inline-block">
-              ← Back to Home
+      <main className="min-h-screen bg-gray-50">
+        <div className="container mx-auto px-4 py-12 max-w-xl">
+          <div className="mb-6">
+            <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm">
+              ← Back
             </Link>
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">
+          </div>
+
+          <div className="bg-white rounded-lg shadow p-8">
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
               English Diagnostic Test
             </h1>
-            <p className="text-lg text-gray-600">
-              Key Stage 2 Assessment (Years 3-6)
+            <p className="text-gray-600 mb-8">
+              Assess your child's current English level
             </p>
-          </header>
 
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                Welcome to the Diagnostic Test
-              </h2>
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Student Name
+              </label>
+              <input
+                type="text"
+                value={childName}
+                onChange={(e) => setChildName(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Enter name"
+                autoFocus
+              />
+            </div>
 
-              <div className="space-y-4 mb-6">
-                <div className="bg-blue-50 rounded-lg p-4">
-                  <h3 className="font-semibold text-blue-900 mb-2">What this test does:</h3>
-                  <ul className="list-disc list-inside text-blue-700 space-y-1">
-                    <li>Assesses current English skills across key areas</li>
-                    <li>Identifies strengths and areas for improvement</li>
-                    <li>Recommends appropriate year level content</li>
-                    <li>Suggests personalized learning approach</li>
-                  </ul>
-                </div>
+            <button
+              onClick={startTest}
+              disabled={!childName.trim()}
+              className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed font-medium transition-colors"
+            >
+              Start Test
+            </button>
 
-                <div className="bg-green-50 rounded-lg p-4">
-                  <h3 className="font-semibold text-green-900 mb-2">Test includes:</h3>
-                  <ul className="list-disc list-inside text-green-700 space-y-1">
-                    <li>Spelling and vocabulary questions</li>
-                    <li>Grammar and punctuation exercises</li>
-                    <li>Reading comprehension tasks</li>
-                    <li>Writing skill assessment</li>
-                    <li>Takes approximately 20-30 minutes</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Child&apos;s Name
-                  </label>
-                  <input
-                    type="text"
-                    value={childName}
-                    onChange={(e) => setChildName(e.target.value)}
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
-                    placeholder="Enter child's name"
-                  />
-                </div>
-
-                <button
-                  onClick={startTest}
-                  disabled={!childName.trim()}
-                  className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed font-semibold"
-                >
-                  Start Diagnostic Test
-                </button>
-              </div>
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <p className="text-sm text-gray-600 mb-4">
+                This test will assess:
+              </p>
+              <ul className="text-sm text-gray-600 space-y-2">
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Spelling & Vocabulary
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Grammar & Punctuation
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Reading Comprehension
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Writing Skills
+                </li>
+              </ul>
+              <p className="text-sm text-gray-500 mt-4">
+                Duration: 20-30 minutes
+              </p>
             </div>
           </div>
         </div>
